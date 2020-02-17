@@ -119,6 +119,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
+import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileFilter;
 import org.jdesktop.application.Action;
 
@@ -2200,26 +2201,31 @@ private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN
           ProgressListener pl = new ProgressListener()
           {
 
+            @Override
             public void progressChanged(Object o, int i)
             {
-              ThreadUtils.assertInGUIThread(); // FIXME: this causes warnings, and they are right
-              MainView.this.progressBar.setValue(i);
-              MainView.this.progressBar.repaint();
+              SwingUtilities.invokeLater(() -> {
+                MainView.this.progressBar.setValue(i);
+                MainView.this.progressBar.repaint();
+              });
             }
 
+            @Override
             public void taskChanged(Object o, String string)
             {
-              ThreadUtils.assertInGUIThread(); // FIXME: this causes warnings, and they are right
-              MainView.this.progressBar.setString(string);
+              SwingUtilities.invokeLater(() -> {
+                MainView.this.progressBar.setString(string);
+              });
             }
           };
-          ThreadUtils.assertInGUIThread(); // FIXME: this causes warnings, and they are right
-          MainView.this.progressBar.setMinimum(0);
-          MainView.this.progressBar.setMaximum(100);
-          MainView.this.progressBar.setValue(1);
-          MainView.this.progressBar.setStringPainted(true);
-          MainView.this.executeJobButton.setEnabled(false);
-          MainView.this.executeJobMenuItem.setEnabled(false);
+          SwingUtilities.invokeLater(() -> {
+            MainView.this.progressBar.setMinimum(0);
+            MainView.this.progressBar.setMaximum(100);
+            MainView.this.progressBar.setValue(1);
+            MainView.this.progressBar.setStringPainted(true);
+            MainView.this.executeJobButton.setEnabled(false);
+            MainView.this.executeJobMenuItem.setEnabled(false);
+          });
           String jobname = "(unnamed job)";
           try
           {
@@ -2264,9 +2270,11 @@ private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN
             {
               dialog.showWarningMessage(w);
             }
-            MainView.this.progressBar.setValue(0);
-            MainView.this.progressBar.setString("");
-            MainView.this.progressBar.setStringPainted(false);
+            SwingUtilities.invokeLater(() -> {
+              MainView.this.progressBar.setValue(0);
+              MainView.this.progressBar.setString("");
+              MainView.this.progressBar.setStringPainted(false);
+            });
             String txt = MainView.this.visicutModel1.getSelectedLaserDevice().getJobSentText();
             txt = txt.replace("$jobname", jobname).replace("$name", MainView.this.visicutModel1.getSelectedLaserDevice().getName());
             dialog.showSuccessMessage(txt);
@@ -2290,10 +2298,12 @@ private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN
               dialog.showErrorMessage(ex);
             }
           }
-          MainView.this.progressBar.setString("");
-          MainView.this.progressBar.setValue(0);
-          MainView.this.executeJobButton.setEnabled(true);
-          MainView.this.executeJobMenuItem.setEnabled(true);
+          SwingUtilities.invokeLater(() -> {
+            MainView.this.progressBar.setString("");
+            MainView.this.progressBar.setValue(0);
+            MainView.this.executeJobButton.setEnabled(true);
+            MainView.this.executeJobMenuItem.setEnabled(true);
+          });
           setLaserJobInProgress(false);
           laserJobStopped();
         }
