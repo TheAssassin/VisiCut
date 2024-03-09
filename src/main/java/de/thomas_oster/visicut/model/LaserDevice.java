@@ -76,6 +76,7 @@ public class LaserDevice implements ImageListable
   {
     this.laserCutter = laserCutter;
   }
+
   /** Deprecated, but may be populated by settings file */
   protected AffineTransform cameraCalibration = null;
   protected Homography cameraHomography = null;
@@ -86,7 +87,7 @@ public class LaserDevice implements ImageListable
    * Computation for scale: Millimeters per one Pixel
    * Millimeters are real millimeters
    * Pixels are pixels of the original unmodified camera image
-   * Seperate values for width and height scale
+   * Separate values for width and height scale
    *
    * @return the value of cameraCalibration
    */
