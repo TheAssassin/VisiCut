@@ -44,64 +44,34 @@ public class LaserDevice implements ImageListable
     this.originBottomLeft = originBottomLeft;
   }
   protected String jobSentText = "Job was sent as '$jobname'\nPlease:\n-Close the lid\n-Turn on the Ventilation\n-And press 'start' on the Lasercutter $name";
-  
-  /**
-   * Get the value of jobSentText
-   *
-   * @return the value of jobSentText
-   */
+
   public String getJobSentText()
   {
     return jobSentText;
   }
 
-  /**
-   * Set the value of jobSentText
-   *
-   * @param jobSentText new value of jobSentText
-   */
   public void setJobSentText(String jobSentText)
   {
     this.jobSentText = jobSentText;
   }
   protected String jobPrefix = "visicut ";
 
-  /**
-   * Get the value of jobPrefix
-   *
-   * @return the value of jobPrefix
-   */
   public String getJobPrefix()
   {
     return jobPrefix;
   }
 
-  /**
-   * Set the value of jobPrefix
-   *
-   * @param jobPrefix new value of jobPrefix
-   */
   public void setJobPrefix(String jobPrefix)
   {
     this.jobPrefix = jobPrefix;
   }
   protected LaserCutter laserCutter = new EpilogZing();
 
-  /**
-   * Get the value of laserCutter
-   *
-   * @return the value of laserCutter
-   */
   public LaserCutter getLaserCutter()
   {
     return laserCutter;
   }
 
-  /**
-   * Set the value of laserCutter
-   *
-   * @param laserCutter new value of laserCutter
-   */
   public void setLaserCutter(LaserCutter laserCutter)
   {
     this.laserCutter = laserCutter;
@@ -130,11 +100,6 @@ public class LaserDevice implements ImageListable
     return cameraHomography;
   }
 
-  /**
-   * Set the value of cameraCalibration
-   *
-   * @param cameraCalibration new value of cameraCalibration
-   */
   public void setCameraCalibration(Homography cameraHomography)
   {
     this.cameraHomography = cameraHomography;
@@ -142,21 +107,11 @@ public class LaserDevice implements ImageListable
   
   protected String URLUser = null;
 
-  /**
-   * Get the value of URLUser
-   *
-   * @return the value of URLUser
-   */
   public String getURLUser()
   {
     return URLUser;
   }
 
-  /**
-   * Set the value of URLUser
-   *
-   * @param URLUser new value of URLUser
-   */
   public void setURLUser(String URLUser)
   {
     this.URLUser = URLUser;
@@ -164,21 +119,11 @@ public class LaserDevice implements ImageListable
   
   protected String URLPassword = null;
 
-  /**
-   * Get the value of URLPassword
-   *
-   * @return the value of URLPassword
-   */
   public String getURLPassword()
   {
     return URLPassword;
   }
 
-  /**
-   * Set the value of URLPassword
-   *
-   * @param URLPassword new value of URLPassword
-   */
   public void setURLPassword(String URLPassword)
   {
     this.URLPassword = URLPassword;
@@ -186,43 +131,23 @@ public class LaserDevice implements ImageListable
   
   protected String cameraURL = null;
 
-  /**
-   * Get the value of cameraURL
-   *
-   * @return the value of cameraURL
-   */
   public String getCameraURL()
   {
     return cameraURL;
   }
 
-  /**
-   * Set the value of cameraURL
-   *
-   * @param cameraURL new value of cameraURL
-   */
   public void setCameraURL(String cameraURL)
   {
     this.cameraURL = cameraURL;
   }
 
   protected int cameraTiming = 0;
-  
-  /**
-   * Get the value of camera timing
-   *
-   * @return the value of camera timing
-   */
+
   public int getCameraTiming()
   {
     return cameraTiming;
   }
 
-  /**
-   * Set the value of camera timing
-   *
-   * @param cameraTiming new value of camera timing
-   */
   public void setCameraTiming(int cameraTiming)
   {
     this.cameraTiming = cameraTiming;
@@ -237,63 +162,33 @@ public class LaserDevice implements ImageListable
   
   protected String thumbnailPath = null;
 
-  /**
-   * Get the value of thumbnailPath
-   *
-   * @return the value of thumbnailPath
-   */
   public String getThumbnailPath()
   {
     return thumbnailPath;
   }
 
-  /**
-   * Set the value of thumbnailPath
-   *
-   * @param thumbnailPath new value of thumbnailPath
-   */
   public void setThumbnailPath(String thumbnailPath)
   {
     this.thumbnailPath = thumbnailPath;
   }
   protected String description = null;
 
-  /**
-   * Get the value of description
-   *
-   * @return the value of description
-   */
   public String getDescription()
   {
     return description;
   }
 
-  /**
-   * Set the value of description
-   *
-   * @param description new value of description
-   */
   public void setDescription(String description)
   {
     this.description = description;
   }
   protected String name = null;
 
-  /**
-   * Get the value of name
-   *
-   * @return the value of name
-   */
   public String getName()
   {
     return name;
   }
 
-  /**
-   * Set the value of name
-   *
-   * @param name new value of name
-   */
   public void setName(String name)
   {
     this.name = name;
